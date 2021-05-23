@@ -1,51 +1,7 @@
-import { rest } from 'msw';
 import { z } from 'zod';
 import { zParser, dummyParser } from './validation';
 import { EndpointWithBody, fetchEndpoint } from './index';
 import { describe, expect, test } from '@jest/globals';
-
-const handlers = [
-  rest.post('http://localhost/auth/login_failed', (req, res, ctx) => {
-    return res(
-      ctx.status(400),
-      ctx.json({
-        success: false,
-        data: "LOGIN_FAILED"
-      })
-    );
-  }),
-  rest.post('http://localhost/auth/login_failed_invalid', (req, res, ctx) => {
-    return res(
-      ctx.status(400),
-      ctx.json({
-        success: false,
-        data: "INVALID_ERROR_CODE"
-      })
-    );
-  }),
-  rest.post('http://localhost/auth/login_success', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        success: true,
-        data: {
-          token: "1234"
-        }
-      })
-    );
-  }),
-  rest.post('http://localhost/auth/login_success_invalid', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        success: true,
-        data: {
-          token: 1234
-        }
-      })
-    );
-  })
-]
 
 const endpoint: EndpointWithBody<{}, { token: string }, "LOGIN_FAILED"> = {
   path: "",
