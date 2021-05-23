@@ -1,8 +1,7 @@
-import { hello } from './index';
-import { describe, test } from '@jest/globals';
+import ky from 'ky';  
+import { test } from '@jest/globals';
 
-describe("fetchEndpoint", () => {
-  test("Login Failed - validation error", async () => {
-      hello();
-  })
+test("Test 1", () => {
+    console.log(ky);
+    console.log("Hello world");
 })
