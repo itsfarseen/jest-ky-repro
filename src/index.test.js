@@ -1,5 +1,4 @@
-import { hello } from './index';
-import { describe, test } from '@jest/globals';
+const { hello } = require('./index');
 
 describe("fetchEndpoint", () => {
   test("Login Failed - validation error", async () => {
