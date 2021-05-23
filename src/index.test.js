@@ -1,5 +1,5 @@
 const ky = require('ky');
 
-test("Test 1", async () => {
+test("Test 1", () => {
     console.log("Hello World");
 })
