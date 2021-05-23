@@ -1,7 +1,7 @@
-const { hello } = require('./index');
+const ky = require('ky');
 
 describe("fetchEndpoint", () => {
   test("Login Failed - validation error", async () => {
-      hello();
+      console.log("Hello World");
   })
 })
